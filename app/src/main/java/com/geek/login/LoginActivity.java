@@ -4,9 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.Editable;
-import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
@@ -19,6 +19,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText email, password;
     private Button btn;
     private String login, pswrd;
+    private Drawable btnBackround;
 
 
     @SuppressLint("ResourceAsColor")
@@ -31,6 +32,7 @@ public class LoginActivity extends AppCompatActivity {
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
         btn = findViewById(R.id.btn);
+        btnBackround = getResources().getDrawable(R.drawable.rounded_btn);
 
         email.addTextChangedListener(new TextWatcher() {
             @Override
@@ -61,17 +63,24 @@ public class LoginActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 login = email.getText().toString();
                 pswrd = password.getText().toString();
-                btn.setEnabled(!login.isEmpty() && !pswrd.isEmpty());
+                if (!login.isEmpty() && !pswrd.isEmpty()) {
+                    Log.d("color", "yellow");
+                    btn.setBackground(btnBackround);
+                }
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
+                login = email.getText().toString();
+                pswrd = password.getText().toString();
+                btn.setEnabled(!login.isEmpty() && !pswrd.isEmpty());
 
             }
         });
 
         login = email.getText().toString();
         pswrd = password.getText().toString();
+
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
