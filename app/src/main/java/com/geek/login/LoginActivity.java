@@ -64,7 +64,6 @@ public class LoginActivity extends AppCompatActivity {
                 login = email.getText().toString();
                 pswrd = password.getText().toString();
                 if (!login.isEmpty() && !pswrd.isEmpty()) {
-                    Log.d("color", "yellow");
                     btn.setBackground(btnBackround);
                 }
             }
