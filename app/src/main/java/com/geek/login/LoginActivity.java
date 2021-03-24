@@ -19,7 +19,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText email, password;
     private Button btn;
     private String login, pswrd;
-    private Drawable btnBackround;
+    private Drawable btnBackround, btnBackround_gray;
 
 
     @SuppressLint("ResourceAsColor")
@@ -33,6 +33,7 @@ public class LoginActivity extends AppCompatActivity {
         password = findViewById(R.id.password);
         btn = findViewById(R.id.btn);
         btnBackround = getResources().getDrawable(R.drawable.rounded_btn);
+        btnBackround_gray = getResources().getDrawable(R.drawable.rounded_btn_gray);
 
         email.addTextChangedListener(new TextWatcher() {
             @Override
@@ -65,6 +66,8 @@ public class LoginActivity extends AppCompatActivity {
                 pswrd = password.getText().toString();
                 if (!login.isEmpty() && !pswrd.isEmpty()) {
                     btn.setBackground(btnBackround);
+                } else {
+                    btn.setBackground(btnBackround_gray);
                 }
             }
 
@@ -85,52 +88,12 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (!login.isEmpty() && !pswrd.isEmpty()) {
                     Toast.makeText(LoginActivity.this, "Welcome!", Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(LoginActivity.this, Calculator.class);
-                    startActivity(intent);
+
                 }
             }
         });
 
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        Log.d("ololo", "onStart()");
-    }
 
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        Log.d("ololo", "onRestart()");
-
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Log.d("ololo", "onResume()");
-
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Log.d("ololo", "onPause()");
-
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        Log.d("ololo", "onStop()");
-
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        Log.d("ololo", "onDestroy()");
-
-    }
 }
