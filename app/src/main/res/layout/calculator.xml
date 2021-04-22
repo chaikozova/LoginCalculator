@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".MainActivity">
+    tools:context=".Calculator">
 
     <RelativeLayout
         android:id="@+id/container1"
@@ -16,6 +16,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
+            android:id="@+id/result"
             android:layout_height="125dp"
             android:layout_width="match_parent"
             android:layout_alignParentBottom="true"
@@ -248,6 +249,17 @@
 
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/line5"
+        android:textSize="35sp"
+        android:textColor="@color/white"
+        android:layout_marginStart="25sp"
+        android:text="Назад"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="back"/>
 
 
 
